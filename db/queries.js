@@ -24,4 +24,33 @@ async function getPosts() {
   return result.rows;
 }
 
-module.exports = { createPost, createUserTest, getPosts };
+async function getPostsById(id) {
+  const result = await pool.query("SELECT * FROM post where id=$1", [id]);
+
+  return result.rows[0];
+}
+
+async function deletePostById(id) {
+  const result = await pool.query("DELETE  FROM post where id=$1 RETURNING *", [
+    id,
+  ]);
+
+  return result.rows[0];
+}
+
+async function updatePost(title, content, id) {
+  const result = await pool.query(
+    "UPDATE post SET title=$1 , post_text=$2 where id=$3 RETURNING *",
+    [title, content, id]
+  );
+
+  return result.rows[0];
+}
+module.exports = {
+  createPost,
+  createUserTest,
+  getPosts,
+  getPostsById,
+  deletePostById,
+  updatePost,
+};

@@ -11,15 +11,23 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "Some title2",
-    "content": "some content2",
+    "title": "Some title4",
+    "content": "some content4",
     "userID": "1"
 }
 
 ###
-
-
 get http://localhost:3000/posts
 
-
 ###
+get http://localhost:3000/posts/13
+###
+DELETE http://localhost:3000/posts/14
+###
+PUT  http://localhost:3000/posts/13
+Content-Type: application/json
+
+{
+    "title": "updated",
+    "content":"u content"
+}
