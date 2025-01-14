@@ -25,7 +25,10 @@ async function getPosts() {
 }
 
 async function getPostsById(id) {
-  const result = await pool.query("SELECT * FROM post  where id=$1", [id]);
+  const result = await pool.query(
+    "SELECT post.id, post.title, post.post_text, post.user_id, post.created_at, post.is_published,COUNT(likes.id) as num_Of_likes FROM post LEFT JOIN likes on post.id=likes.post_id where post.id=$1 GROUP BY post.id",
+    [id]
+  );
 
   return result.rows[0];
 }
