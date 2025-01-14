@@ -1,1 +1,25 @@
-GET http://localhost:3000/users/1
+POST  http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Marko"
+}
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Some title2",
+    "content": "some content2",
+    "userID": "1"
+}
+
+###
+
+
+get http://localhost:3000/posts
+
+
+###
