@@ -32,6 +32,11 @@ const updatePost = asyncHandler(async (req, res) => {
   res.json(post);
 });
 
+//LIKE
+const likePost = asyncHandler(async (req, res) => {
+  //if()
+});
+
 module.exports = {
   createPost,
   getPosts,

@@ -1,18 +1,11 @@
-POST  http://localhost:3000/users
-Content-Type: application/json
-
-{
-    "name": "Marko"
-}
-
-###
+//POSTS 
 
 POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "Some title4",
-    "content": "some content4",
+    "title": "Some title53",
+    "content": "some content534",
     "userID": "1"
 }
 
@@ -31,3 +24,17 @@ Content-Type: application/json
     "title": "updated",
     "content":"u content"
 }
+###
+//LIKES
+POST http://localhost:3000/posts/like/
+
+###
+//USERS
+POST  http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Marko"
+}
+
+###

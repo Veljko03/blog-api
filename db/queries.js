@@ -25,7 +25,7 @@ async function getPosts() {
 }
 
 async function getPostsById(id) {
-  const result = await pool.query("SELECT * FROM post where id=$1", [id]);
+  const result = await pool.query("SELECT * FROM post  where id=$1", [id]);
 
   return result.rows[0];
 }
@@ -45,6 +45,13 @@ async function updatePost(title, content, id) {
   );
 
   return result.rows[0];
+}
+
+async function likePost(id, user_id) {
+  const result = await pool.query("INSERT INTO likes ");
+}
+async function countLikes(id) {
+  const result = await pool.query();
 }
 module.exports = {
   createPost,
