@@ -26,7 +26,12 @@ Content-Type: application/json
 }
 ###
 //LIKES
-POST http://localhost:3000/posts/like/
+POST http://localhost:3000/posts/like/13
+Content-Type: application/json
+
+{
+    "userID":"1"
+}
 
 ###
 //USERS

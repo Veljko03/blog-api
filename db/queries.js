@@ -47,12 +47,30 @@ async function updatePost(title, content, id) {
   return result.rows[0];
 }
 
-async function likePost(id, user_id) {
-  const result = await pool.query("INSERT INTO likes ");
+async function likePost(post_id, user_id) {
+  const check = await pool.query(
+    "SELECT * FROM likes WHERE post_id=$1 AND user_id=$2",
+    [post_id, user_id]
+  );
+  if (check.rowCount > 0) {
+    const result = await pool.query(
+      "DELETE FROM likes WHERE post_id=$1 AND user_id=$2 RETURNING *",
+      [post_id, user_id]
+    );
+    console.log("Deleted like");
+
+    return result.rows[0];
+  } else {
+    const result = await pool.query(
+      "INSERT INTO likes (post_id, user_id) VALUES ($1, $2) RETURNING *",
+      [post_id, user_id]
+    );
+    console.log("added like");
+
+    return result.rows[0];
+  }
 }
-async function countLikes(id) {
-  const result = await pool.query();
-}
+
 module.exports = {
   createPost,
   createUserTest,
@@ -60,4 +78,5 @@ module.exports = {
   getPostsById,
   deletePostById,
   updatePost,
+  likePost,
 };

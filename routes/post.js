@@ -9,6 +9,6 @@ router.put("/:id", postController.updatePost);
 router.post("/", postController.createPost);
 
 //LIKE
-//router.post("/like/:id", postController.likePost);
+router.post("/like/:id", postController.likePost);
 
 module.exports = router;

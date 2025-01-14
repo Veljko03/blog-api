@@ -34,7 +34,10 @@ const updatePost = asyncHandler(async (req, res) => {
 
 //LIKE
 const likePost = asyncHandler(async (req, res) => {
-  //if()
+  const { userID } = req.body;
+  const { id } = req.params;
+  const post = await db.likePost(id, userID);
+  res.json(post);
 });
 
 module.exports = {
@@ -43,4 +46,5 @@ module.exports = {
   getPostsById,
   deletePostById,
   updatePost,
+  likePost,
 };
