@@ -32,6 +32,15 @@ Content-Type: application/json
 {
     "userID":"1"
 }
+###
+//COMMENTS
+POST http://localhost:3000/posts/comment/13
+Content-Type: application/json
+
+{
+    "text":"this is first comment for post 13",
+    "userID":"4"
+}
 
 ###
 //USERS
@@ -39,7 +48,7 @@ POST  http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "name": "Marko"
+    "name": "Darko"
 }
 
 ###

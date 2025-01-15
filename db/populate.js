@@ -28,7 +28,7 @@ CREATE TABLE comment (
     post_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-    FOREIGN KEY (post_id) REFERENCES users (id) ON DELETE CASCADE
+    FOREIGN KEY (post_id) REFERENCES post (id) ON DELETE CASCADE
 );
 
 CREATE TABLE likes (

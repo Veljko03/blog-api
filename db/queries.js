@@ -49,7 +49,7 @@ async function updatePost(title, content, id) {
 
   return result.rows[0];
 }
-
+//LIKES
 async function likePost(post_id, user_id) {
   const check = await pool.query(
     "SELECT * FROM likes WHERE post_id=$1 AND user_id=$2",
@@ -74,6 +74,16 @@ async function likePost(post_id, user_id) {
   }
 }
 
+//COMMENTS
+async function createComment(text, postID, userID) {
+  const result = await pool.query(
+    "INSERT INTO comment (comment_text,post_id,user_id) VALUES ($1,$2,$3) RETURNING *",
+    [text, postID, userID]
+  );
+
+  return result.rows[0];
+}
+
 module.exports = {
   createPost,
   createUserTest,
@@ -82,4 +92,5 @@ module.exports = {
   deletePostById,
   updatePost,
   likePost,
+  createComment,
 };

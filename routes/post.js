@@ -11,4 +11,7 @@ router.post("/", postController.createPost);
 //LIKE
 router.post("/like/:id", postController.likePost);
 
+//COMMENTS
+router.post("/comment/:id", postController.createComment);
+
 module.exports = router;

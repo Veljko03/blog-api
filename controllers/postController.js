@@ -40,6 +40,16 @@ const likePost = asyncHandler(async (req, res) => {
   res.json(post);
 });
 
+//COMMENTS
+const createComment = asyncHandler(async (req, res) => {
+  const { userID, text } = req.body;
+  const postID = req.params.id;
+  console.log("post id ", postID, " user id=", userID, " text=", text);
+
+  const comment = await db.createComment(text, postID, userID);
+  res.json(comment);
+});
+
 module.exports = {
   createPost,
   getPosts,
@@ -47,4 +57,5 @@ module.exports = {
   deletePostById,
   updatePost,
   likePost,
+  createComment,
 };
