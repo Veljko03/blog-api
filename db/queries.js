@@ -26,7 +26,7 @@ async function getPosts() {
 
 async function getPostsById(id) {
   const result = await pool.query(
-    "SELECT post.id, post.title, post.post_text, post.user_id, post.created_at, post.is_published,COUNT(likes.id) as num_Of_likes FROM post LEFT JOIN likes on post.id=likes.post_id where post.id=$1 GROUP BY post.id",
+    "SELECT post.id, post.title, post.post_text, post.user_id, post.created_at, post.is_published,COUNT(likes.id) as num_Of_likes FROM post LEFT JOIN likes on post.id=likes.post_id  where post.id=$1 GROUP BY post.id",
     [id]
   );
 
@@ -84,6 +84,15 @@ async function createComment(text, postID, userID) {
   return result.rows[0];
 }
 
+async function getCommentsForPost(postID) {
+  const result = await pool.query(
+    "SELECT * FROM comment where post_id=$1 ORDER BY created_at DESC",
+    [postID]
+  );
+
+  return result.rows;
+}
+
 module.exports = {
   createPost,
   createUserTest,
@@ -93,4 +102,5 @@ module.exports = {
   updatePost,
   likePost,
   createComment,
+  getCommentsForPost,
 };

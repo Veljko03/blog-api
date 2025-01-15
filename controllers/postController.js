@@ -10,13 +10,18 @@ const createPost = asyncHandler(async (req, res) => {
 
 const getPosts = asyncHandler(async (req, res) => {
   const allPosts = await db.getPosts();
+
   res.json(allPosts);
 });
 
 const getPostsById = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const post = await db.getPostsById(id);
-  res.json(post);
+  const comments = await db.getCommentsForPost(id);
+
+  const result = { ...post, comments };
+
+  res.json(result);
 });
 
 const deletePostById = asyncHandler(async (req, res) => {

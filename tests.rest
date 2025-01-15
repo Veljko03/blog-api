@@ -38,8 +38,8 @@ POST http://localhost:3000/posts/comment/13
 Content-Type: application/json
 
 {
-    "text":"this is first comment for post 13",
-    "userID":"4"
+    "text":"this is sendond comment for post 13",
+    "userID":"1"
 }
 
 ###
