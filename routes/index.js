@@ -1,7 +1,7 @@
 const post = require("./post");
-const user = require("./user");
+const signIn = require("./signIn");
 
 module.exports = {
-  user,
   post,
+  signIn,
 };

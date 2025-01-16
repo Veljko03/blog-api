@@ -13,7 +13,7 @@ Content-Type: application/json
 get http://localhost:3000/posts
 
 ###
-get http://localhost:3000/posts/13
+get http://localhost:3000/posts/12
 ###
 DELETE http://localhost:3000/posts/14
 ###
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 ###
 //LIKES
-POST http://localhost:3000/posts/like/13
+POST http://localhost:3000/posts/like/12
 Content-Type: application/json
 
 {
@@ -34,21 +34,25 @@ Content-Type: application/json
 }
 ###
 //COMMENTS
-POST http://localhost:3000/posts/comment/13
+POST http://localhost:3000/posts/comment/12
 Content-Type: application/json
 
 {
-    "text":"this is sendond comment for post 13",
+    "text":"this is sendond comment for post 12 user id 1",
     "userID":"1"
 }
 
+
+
 ###
 //USERS
-POST  http://localhost:3000/users
+POST  http://localhost:3000/sign-in
 Content-Type: application/json
 
 {
-    "name": "Darko"
+    "email": "darko@gmail.com",
+    "username": "Veljko ",
+    "password":"nekaLozinka123"
 }
 
 ###

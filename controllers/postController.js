@@ -52,6 +52,11 @@ const createComment = asyncHandler(async (req, res) => {
   console.log("post id ", postID, " user id=", userID, " text=", text);
 
   const comment = await db.createComment(text, postID, userID);
+  console.log(comment, " comment");
+
+  if (!comment) {
+    res.status(404).send("Cant create Comment");
+  }
   res.json(comment);
 });
 
