@@ -4,6 +4,13 @@ const passport = require("passport");
 const router = Router();
 
 router.post("/", logIn);
+// router.get(
+//   "/login/federated/google",
+//   passport.authenticate("google"),
+//   (req, res) => {
+//     res.json({ message: "Ovo je zaštićena ruta za google!", user: req.user });
+//   }
+// );
 
 router.get(
   "/protected-data",
