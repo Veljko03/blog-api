@@ -1,6 +1,8 @@
 const express = require("express");
 const { post, signIn, logIn } = require("./routes");
 const app = express();
+const passport = require("passport");
+require("./config/passport");
 
 app.use(express.json());
 app.use("/posts", post);

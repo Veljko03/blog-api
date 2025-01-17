@@ -15,6 +15,11 @@ async function getUserByEmail(email) {
   ]);
   return user.rows[0];
 }
+
+async function getUserById(id) {
+  const user = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+  return user.rows[0];
+}
 //POSTS
 async function createPost(title, content, userID) {
   const result = await pool.query(
@@ -111,4 +116,5 @@ module.exports = {
   createComment,
   getCommentsForPost,
   getUserByEmail,
+  getUserById,
 };

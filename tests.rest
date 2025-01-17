@@ -50,8 +50,8 @@ POST  http://localhost:3000/sign-in
 Content-Type: application/json
 
 {
-    "email": "darko@gmail.com",
-    "username": "Veljko ",
+    "email": "marko@gmail.com",
+    "username": "marko ",
     "password":"nekaLozinka123"
 }
 
@@ -64,3 +64,7 @@ Content-Type: application/json
     "email": "darko@gmail.com",
     "password":"nekaLozinka123"
 }
+
+###
+GET  http://localhost:3000/log-in/protected-data
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJ1c2VyX25hbWUiOiJWZWxqa28gIiwiZ29vZ2xlX2lkIjpudWxsLCJlbWFpbCI6ImRhcmtvQGdtYWlsLmNvbSIsImlzX2FkbWluIjpmYWxzZSwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRacXRWVmN4U3M0Y3h4cU4xbDZwN1V1R3NGV1liNlF3QnNONmlNYmZjcndyQVRaLnFNWHFkSyJ9LCJpYXQiOjE3MzcxMjk0MTQsImV4cCI6MTczNzIxNTgxNH0.Ab6c2xglq8uSYGDpERbUxl7kTbfjiF39lX32bLv26ew
