@@ -1,10 +1,10 @@
 const express = require("express");
-const { post, signIn } = require("./routes");
+const { post, signIn, logIn } = require("./routes");
 const app = express();
 
 app.use(express.json());
 app.use("/posts", post);
-//app.use("/log-in",);
+app.use("/log-in", logIn);
 app.use("/sign-in", signIn);
 app.get("/", (req, res) => {
   res.send("Hello world");

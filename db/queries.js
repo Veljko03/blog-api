@@ -1,6 +1,6 @@
 const pool = require("./pool");
 const asynchHandler = require("express-async-handler");
-
+//USERS
 const createNewUser = asynchHandler(async (email, username, hashedPassword) => {
   const result = await pool.query(
     "INSERT INTO users (email,user_name,password_hash) VALUES ($1,$2,$3) RETURNING *",
@@ -9,7 +9,13 @@ const createNewUser = asynchHandler(async (email, username, hashedPassword) => {
 
   return result.rows[0];
 });
-
+async function getUserByEmail(email) {
+  const user = await pool.query("SELECT * FROM users WHERE email = $1", [
+    email,
+  ]);
+  return user.rows[0];
+}
+//POSTS
 async function createPost(title, content, userID) {
   const result = await pool.query(
     "INSERT INTO post (title,post_text,user_id) VALUES ($1,$2,$3) RETURNING *",
@@ -104,4 +110,5 @@ module.exports = {
   likePost,
   createComment,
   getCommentsForPost,
+  getUserByEmail,
 };
