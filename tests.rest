@@ -35,10 +35,11 @@ Content-Type: application/json
 ###
 //COMMENTS
 POST http://localhost:3000/posts/comment/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJ1c2VyX25hbWUiOiJWZWxqa28gIiwiZ29vZ2xlX2lkIjpudWxsLCJlbWFpbCI6ImRhcmtvQGdtYWlsLmNvbSIsImlzX2FkbWluIjpmYWxzZSwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRacXRWVmN4U3M0Y3h4cU4xbDZwN1V1R3NGV1liNlF3QnNONmlNYmZjcndyQVRaLnFNWHFkSyJ9LCJpYXQiOjE3MzcxMjk0MTQsImV4cCI6MTczNzIxNTgxNH0.Ab6c2xglq8uSYGDpERbUxl7kTbfjiF39lX32bLv26ew
 Content-Type: application/json
 
 {
-    "text":"this is sendond comment for post 12 user id 1",
+    "text":"this is sendond fdas for post 12 user id 1",
     "userID":"1"
 }
 
@@ -68,3 +69,5 @@ Content-Type: application/json
 ###
 GET  http://localhost:3000/log-in/protected-data
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJ1c2VyX25hbWUiOiJWZWxqa28gIiwiZ29vZ2xlX2lkIjpudWxsLCJlbWFpbCI6ImRhcmtvQGdtYWlsLmNvbSIsImlzX2FkbWluIjpmYWxzZSwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRacXRWVmN4U3M0Y3h4cU4xbDZwN1V1R3NGV1liNlF3QnNONmlNYmZjcndyQVRaLnFNWHFkSyJ9LCJpYXQiOjE3MzcxMjk0MTQsImV4cCI6MTczNzIxNTgxNH0.Ab6c2xglq8uSYGDpERbUxl7kTbfjiF39lX32bLv26ew
+
+###

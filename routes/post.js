@@ -1,17 +1,37 @@
 const { Router } = require("express");
 const router = Router();
 const postController = require("../controllers/postController");
-
+const passport = require("passport");
 router.get("/", postController.getPosts);
 router.get("/:id", postController.getPostsById);
-router.delete("/:id", postController.deletePostById);
-router.put("/:id", postController.updatePost);
-router.post("/", postController.createPost);
+router.delete(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  postController.deletePostById
+);
+router.put(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  postController.updatePost
+);
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  postController.createPost
+);
 
 //LIKE
-router.post("/like/:id", postController.likePost);
+router.post(
+  "/like/:id",
+  passport.authenticate("jwt", { session: false }),
+  postController.likePost
+);
 
 //COMMENTS
-router.post("/comment/:id", postController.createComment);
+router.post(
+  "/comment/:id",
+  passport.authenticate("jwt", { session: false }),
+  postController.createComment
+);
 
 module.exports = router;
