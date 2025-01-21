@@ -1,3 +1,4 @@
+const { use } = require("passport");
 const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 
@@ -10,6 +11,9 @@ const createPost = asyncHandler(async (req, res) => {
 
 const getPosts = asyncHandler(async (req, res) => {
   const allPosts = await db.getPosts();
+  const user = req.user;
+
+  //const result = { ...allPosts, user };
 
   res.json(allPosts);
 });
@@ -18,8 +22,10 @@ const getPostsById = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const post = await db.getPostsById(id);
   const comments = await db.getCommentsForPost(id);
+  const userId = req.user;
+  console.log(req.user);
 
-  const result = { ...post, comments };
+  const result = { ...post, comments, userId };
 
   res.json(result);
 });
@@ -41,7 +47,11 @@ const updatePost = asyncHandler(async (req, res) => {
 const likePost = asyncHandler(async (req, res) => {
   const { userID } = req.body;
   const { id } = req.params;
-  const post = await db.likePost(id, userID);
+
+  const like = await db.likePost(id, userID);
+  const post = await db.getPostsById(id);
+  console.log(userID);
+  console.log(post);
   res.json(post);
 });
 

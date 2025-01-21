@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const logIn = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+
   if (!email || !password) {
     res.status(400).json({ message: "Please enter email and passowrd" });
   }
@@ -23,8 +24,8 @@ const logIn = asyncHandler(async (req, res) => {
   const token = jwt.sign({ user }, process.env.SECRET_KEY, {
     expiresIn: "24h",
   });
-
-  res.json(token);
+  const result = { token, user };
+  res.json(result);
 });
 
 module.exports = { logIn };
