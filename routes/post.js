@@ -33,5 +33,10 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   postController.createComment
 );
+router.delete(
+  "/comment/:id",
+  passport.authenticate("jwt", { session: false }),
+  postController.deleteComment
+);
 
 module.exports = router;

@@ -44,7 +44,15 @@ Content-Type: application/json
     "userID":"11"
 }
 
+###
+DELETE  http://localhost:3000/posts/comment/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJ1c2VyX25hbWUiOiJWZWxqa28gIiwiZ29vZ2xlX2lkIjpudWxsLCJlbWFpbCI6ImRhcmtvQGdtYWlsLmNvbSIsImlzX2FkbWluIjpmYWxzZSwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRacXRWVmN4U3M0Y3h4cU4xbDZwN1V1R3NGV1liNlF3QnNONmlNYmZjcndyQVRaLnFNWHFkSyJ9LCJpYXQiOjE3Mzc0ODc5NDksImV4cCI6MTczNzU3NDM0OX0.dawrtM88ZTP_1TL7TJC1Jf6Av7H5d1M0qTBbNO5zdXQ
+Content-Type: application/json
 
+{
+    "commentID":"21",
+    "userID":"11"
+}
 
 ###
 //USERS

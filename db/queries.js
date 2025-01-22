@@ -105,6 +105,13 @@ async function getCommentsForPost(postID) {
   return result.rows;
 }
 
+async function deleteCommentById(postID, commentID, userID) {
+  await pool.query(
+    "DELETE FROM comment WHERE id=$1 and user_id=$2 and post_id=$3",
+    [commentID, userID, postID]
+  );
+}
+
 module.exports = {
   createPost,
   createNewUser,
@@ -117,4 +124,5 @@ module.exports = {
   getCommentsForPost,
   getUserByEmail,
   getUserById,
+  deleteCommentById,
 };

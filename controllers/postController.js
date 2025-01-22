@@ -70,6 +70,14 @@ const createComment = asyncHandler(async (req, res) => {
   res.json(comment);
 });
 
+const deleteComment = asyncHandler(async (req, res) => {
+  const postID = req.params.id;
+  const { commentID, userID } = req.body;
+  await db.deleteCommentById(postID, commentID, userID);
+  const comments = await db.getCommentsForPost(postID);
+  res.json(comments);
+});
+
 module.exports = {
   createPost,
   getPosts,
@@ -78,4 +86,5 @@ module.exports = {
   updatePost,
   likePost,
   createComment,
+  deleteComment,
 };
