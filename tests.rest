@@ -60,9 +60,9 @@ POST  http://localhost:3000/sign-in
 Content-Type: application/json
 
 {
-    "email": "marko@gmail.com",
-    "username": "marko ",
-    "password":"nekaLozinka123"
+    "email": "admin123@gmail.com",
+    "username": "admin123",
+    "password":"admin123"
 }
 
 ###
@@ -71,8 +71,8 @@ POST  http://localhost:3000/log-in
 Content-Type: application/json
 
 {
-    "email": "darko@gmail.com",
-    "password":"nekaLozinka123"
+    "email": "admin123@gmail.com",
+    "password":"admin123"
 }
 
 ###
